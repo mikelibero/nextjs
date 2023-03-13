@@ -36,6 +36,7 @@ export default async function Home() {
   return (
     <main >
       <div>
+        Prueba 1
        {footer.data.footer.data.attributes.logo.image.data.attributes.url}
       </div>
     </main>
