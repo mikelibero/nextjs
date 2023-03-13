@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    runtime: "experimental-edge",
   },
   i18n: {
     locales: ['es-ES','en-US'],
