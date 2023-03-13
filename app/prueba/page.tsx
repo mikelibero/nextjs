@@ -1,9 +1,44 @@
-import React from 'react'
+const query = `{
+  footer{
+    data{
+      attributes{
+        logo{
+          image{
+            data{
+              attributes{
+                url
+                alternativeText
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`
 
-const page = () => {
-  return (
-    <div>Página de prueba nueva</div>
-  )
+
+const fetchPost = () => {
+  return fetch('https://461b-93-176-180-203.eu.ngrok.io/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: query
+    }),
+  })
+    .then(res => res.json())
 }
 
-export default page
+export default async function Prueba() {
+  const footer = await fetchPost();
+  return (
+    <main >
+      <div>
+        Prueba 1, creo que ahora si
+       {footer.data.footer.data.attributes.logo.image.data.attributes.url}
+      </div>
+    </main>
+  )
+}
